@@ -1,6 +1,17 @@
 # Cross-Document Alignment (CDA)
 This is the code for our paper: 
 
+Citation:
+
+```
+@inproceedings{Zhou2020Multilevel,
+  author={Xuhui Zhou, Nikolaos Pappas, Noah A. Smith},
+  title={Multilevel Text Alignment with Cross-Document Attention},
+  booktitle={EMNLP},
+  year={2020}
+}
+```
+
 Thank you for taking a look at our code!
 For different tasks, we have different scripts for them for now. 
 We will unify them in the future.
