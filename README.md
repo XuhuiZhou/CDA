@@ -13,7 +13,7 @@ Since we have many scripts in this folder, we want to give you some pointers tha
 in our paper respectively.
 
 3. You can directly take a look at d_graph_hier_mat_model_g.py and graph_hier_mat_model_g.py for our implementation for
-Deep and Shallow CDA.  
+Deep and Shallow CDA. This should be the place where magic happens.
 
 4. For evaluation scripts, we recommend taking a look at test_pla_mask_onestep.py and test_state_dict_mask_onestep.py for
 plagiarism task and citation recommendation task. They have some subtle difference for S2D task as described in the paper.
