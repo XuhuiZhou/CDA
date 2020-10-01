@@ -29,8 +29,6 @@ Deep and Shallow CDA. This should be the place where magic happens.
 4. For evaluation scripts, we recommend taking a look at test_pla_mask_onestep.py and test_state_dict_mask_onestep.py for
 plagiarism task and citation recommendation task. They have some subtle difference for S2D task as described in the paper.
 
-5. Fair warining: we merge files from different servers without further testing, which cause some inconsistency, please take a careful look before using them.
+5. For finetuning BERT, see BERT-HAN folder.
 
-6. For finetuning BERT, see BERT-HAN folder.
-
-7. All the external libraries are included in the environment.yml file.
+6. All the external libraries are included in the environment.yml file.
