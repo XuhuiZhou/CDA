@@ -75,7 +75,7 @@ The following command will train a BERT-based hierachical attention network (HAN
 ## Other Friendly Reminders
 * For evaluating models, just find corresponding evaluation .sh scripts, they should be straightforward.
 * For other scripts, they are used for variations of our experiments, some of them are reported in the paper while some are not. You can just ignore them or you can also read on.
-* You can directly take a look at d_graph_hier_mat_model_g.py and graph_hier_mat_model_g.py for our implementation for
+* You can directly take a look at ``d_graph_hier_mat_model_g.py`` and ``graph_hier_mat_model_g.py`` for our implementation for
 Deep and Shallow CDA. This should be the place where magic happens.
 * For evaluation scripts, we recommend taking a look at test_pla_mask_onestep.py and test_state_dict_mask_onestep.py for
 plagiarism task and citation recommendation task. They have some subtle difference for S2D task.
