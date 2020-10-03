@@ -1,9 +1,9 @@
 # Cross-Document Alignment (CDA)
-This is the code for our paper: 
+This is the code for our EMNLP2020 paper: Multilevel Text Alignment with Cross-Document Attention
 
-Citation:
+## Citation:
 
-```
+```bibtex
 @inproceedings{Zhou2020Multilevel,
   author={Xuhui Zhou, Nikolaos Pappas, Noah A. Smith},
   title={Multilevel Text Alignment with Cross-Document Attention},
@@ -12,9 +12,12 @@ Citation:
 }
 ```
 
+## Project Website: 
+We also release a benchmark for **Document Relation Prediction and Localization**, where you can download the dataset used in our paper [here](https://xuhuizhou.github.io/Multilevel-Text-Alignment/)!
+
+
+
 Thank you for taking a look at our code!
-For different tasks, we have different scripts for them for now. 
-We will unify them in the future.
 
 Since we have many scripts in this folder, we want to give you some pointers that may help you navigate:
 
