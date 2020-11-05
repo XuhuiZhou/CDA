@@ -1,5 +1,5 @@
 # Cross-Document Alignment (CDA)
-This is the code for our EMNLP2020 paper: Multilevel Text Alignment with Cross-Document Attention
+This is the code for our EMNLP2020 paper: [Multilevel Text Alignment with Cross-Document Attention](https://arxiv.org/abs/2010.01263)
 
 ## Citation:
 
