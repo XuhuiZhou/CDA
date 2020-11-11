@@ -65,7 +65,7 @@ python get_rep.py \
     --mlm
 ```
 
-Note that one needs to produce a sentence-level .txt file alone with an .index file to feed into the ```get_rep.py```; One example could be found in 
+Note that one needs to produce a sentence-level ``.txt`` file alone with an ``.index`` file to feed into the ```get_rep.py```; One example could be found at ```produce_txt.py```, where the input is a ``.csv`` file and the output is a ``.txt`` and ``.index`` file.
 
 ### Running finetuning BERT-HAN
 Warning: Please ensure you have GPU space exceeds 10 GB to run the fine-tuning version:
