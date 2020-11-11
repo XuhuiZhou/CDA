@@ -1,6 +1,3 @@
-"""
-@author: Viet Nguyen <nhviet1009@gmail.com>
-"""
 from torch.utils.data.dataset import Dataset
 import torch
 import csv
