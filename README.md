@@ -44,14 +44,14 @@ The following command will train a BERT-based hierachical attention network (HAN
 ```bash
 ./run/acl_train_bert.sh
 ```
-You need to obtain the pre-trained contextualized embedding first to run the code.
-Though there are many ways to achieve that, we recommend using the following command:
+You need to obtain the pre-trained contextualized embedding (.npy file as well as .index file) first to run the code.
+Though there are many ways to achieve that, we recommend using the following command (you can find ```get_rep.py``` in this repo):
 
 ```bash
 export TRAIN_FILE='this does not matter'
 export TEST_FILE='your data'
 
-python get_finetune_rep.py \
+python get_rep.py \
     --output_dir=cite_models \
     --overwrite_output_dir \
     --model_type=bert \
@@ -64,6 +64,9 @@ python get_finetune_rep.py \
     --rep_name=../HAMN/data/cite_ai2/test_ai2_ab.npy \
     --mlm
 ```
+
+Note that one needs to produce a sentence-level .txt file alone with an .index file to feed into the ```get_rep.py```; One example could be found in 
+
 ### Running finetuning BERT-HAN
 Warning: Please ensure you have GPU space exceeds 10 GB to run the fine-tuning version:
 
