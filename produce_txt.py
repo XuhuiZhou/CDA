@@ -19,12 +19,6 @@ with open(data_path) as csv_file:
         text_2 = ""
         line[1] = line[1].replace('\001', '')
         line[2] = line[2].replace('\001', '')
-        for tx in line[1].split():
-            text_1 += tx.lower()
-            text_1 += " "
-        for tx in line[2].split():
-            text_2 += tx.lower()
-            text_2 += " "
         label = int(line[0])
         text_1 = process(text_1)
         text_2 = process(text_2)
