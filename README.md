@@ -46,6 +46,8 @@ The following command will train a BERT-based hierachical attention network (HAN
 ```
 
 #### Running experiments on our corpora
+First, download our [dataset](https://xuhuizhou.github.io/Multilevel-Text-Alignment/).
+
 You need to obtain the pre-trained contextualized embedding (.npy file as well as .index file) first to run the code.
 Though there are many ways to achieve that, we recommend using the following command (you can find ```get_rep.py``` in this repo):
 
@@ -66,7 +68,7 @@ python get_rep.py \
     --rep_name=../HAMN/data/cite_ai2/test_ai2_ab.npy \
     --mlm
 ```
-The file takes in ``.txt``, which is the sentences of documents as input and produce sentence embeddings ``.npy`` for each sentence. During the data reading phase, those sentence embeddings are re-organized into documents with sentence embeddings with the ``.index`` file. You can use the files in ``frozen bert`` for this step.
+The file takes in ``.txt``, which is the sentences of documents as input and produce sentence embeddings ``.npy`` for each sentence. During the data reading phase, those sentence embeddings are re-organized into documents with sentence embeddings with the ``.index`` file. You can use the files in our datasets for this step.
 
 #### Running experiments on your own corpora
 If you want to run experiments on your own corpora, then you need to produce the aforementioned files. One example could be found at ```produce_txt.py```, where the input is a ``.csv`` file and the output is a ``.txt`` and ``.index`` file. 
