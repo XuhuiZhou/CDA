@@ -60,12 +60,12 @@ python get_rep.py \
     --overwrite_output_dir \
     --model_type=bert \
     --per_gpu_eval_batch_size=10 \
-    --model_name_or_path=bert-base-cased \
+    --model_name_or_path=bert-large-cased \
     --line_by_line \
     --train_data_file=$TRAIN_FILE \
     --special_eval \
     --eval_data_file=$TEST_FILE \
-    --rep_name=../HAMN/data/cite_ai2/test_ai2_ab.npy \
+    --rep_name=./destination of your .npy \
     --mlm
 ```
 The file takes in ``.txt``, which is the sentences of documents as input and produce sentence embeddings ``.npy`` for each sentence. During the data reading phase, those sentence embeddings are re-organized into documents with sentence embeddings with the ``.index`` file. You can use the files in our datasets for this step.
