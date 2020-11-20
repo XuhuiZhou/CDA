@@ -46,7 +46,7 @@ The following command will train a BERT-based hierachical attention network (HAN
 ```
 
 #### Running experiments on our corpora
-First, download our [dataset](https://xuhuizhou.github.io/Multilevel-Text-Alignment/) (The 1.3GB version).
+First, download our [dataset](https://xuhuizhou.github.io/Multilevel-Text-Alignment/) (Please always download the latest version).
 
 You need to obtain the pre-trained contextualized embedding (.npy file as well as .index file) first to run the code.
 Though there are many ways to achieve that, we recommend using the following command (you can find ```get_rep.py``` in this repo):
