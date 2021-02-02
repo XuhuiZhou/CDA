@@ -23,7 +23,6 @@ torch.cuda.manual_seed(seed)
 torch.cuda.manual_seed_all(seed) # if you are using multi-GPU.
 torch.backends.cudnn.benchmark = False
 torch.backends.cudnn.deterministic = True
-os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +58,6 @@ def train(opt):
         torch.cuda.manual_seed(123)
     else:
         torch.manual_seed(123)
-    # os.chdir("/data2/xuhuizh/graphM_project/HAMN")
     output_file = open(opt.saved_path + os.sep + "logs.txt", "w")
     output_file.write("Model's parameters: {}".format(vars(opt)))
     training_params = {"batch_size": opt.batch_size,
@@ -93,16 +91,10 @@ def train(opt):
     else:
         model = HierAttNet(opt.word_hidden_size, opt.sent_hidden_size, opt.batch_size,freeze,
                        opt.word2vec_path, max_sent_length, max_word_length)
-    # if os.path.isdir(opt.log_path):
-    #    shutil.rmtree(opt.log_path)
-    # os.makedirs(opt.log_path)
-    #writer = SummaryWriter(opt.log_path)
-    # writer.add_graph(model, torch.zeros(opt.batch_size, max_sent_length, max_word_length))
 
     if torch.cuda.is_available():
         model.cuda()
-    #m = nn.Sigmoid()
-    #criterion = nn.CosineEmbeddingLoss()
+  
     criterion = nn.BCELoss()
     optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=opt.lr)
     best_loss = 1e5
@@ -120,19 +112,9 @@ def train(opt):
                 feature1 = feature1.cuda()
                 feature2 = feature2.cuda()
                 label = label.float().cuda()
-            #print(label.shape)
-            #print(feature1)
-            #print(feature2)
             optimizer.zero_grad()
             model._init_hidden_state()
             predictions = model(feature1, feature2)
-            #print(label)
-            #print(predictions)
-            #cosine:
-            #loss = criterion(output_1, output_2, label)
-            #BCE:
-            #print(predictions)
-            #print(label)
             loss = criterion(predictions, label)
             loss.backward()
             optimizer.step()
@@ -146,25 +128,12 @@ def train(opt):
                 loss, training_metrics["accuracy"]),flush=True)
             print("--- %s seconds ---" % (time.time() - start_time))
             start_time = time.time()
-           # writer.add_scalar('Train/Loss', loss, epoch * num_iter_per_epoch + iter)
-           # writer.add_scalar('Train/Accuracy', training_metrics["accuracy"], epoch * num_iter_per_epoch + iter)
             loss_ls.append(loss * num_sample)
             te_label_ls.extend(label.clone().cpu())
             te_pred_ls.append(predictions.clone().cpu())
             sum_all = 0
             sum_updated = 0
-            ''' 
-            for name, param in model.named_parameters():
-                print('All parameters')
-                print(name,torch.numel(param.data))
-                sum_all += torch.numel(param.data)
-                if param.requires_grad:
-                    print('Updated parameters:')
-                    print(name,torch.numel(param.data))
-                    sum_updated+= torch.numel(param.data)
-            print('all', sum_all)
-            print('update', sum_updated)
-            ''' 
+ 
         #print total train loss
         te_loss = sum(loss_ls) / test_set.__len__()
         te_pred = torch.cat(te_pred_ls, 0)
@@ -188,7 +157,6 @@ def train(opt):
             te_pred_ls = []
             for te_feature1, te_feature2, te_label in test_generator:
                 num_sample = len(te_label)
-                #print(num_sample)
                 if torch.cuda.is_available():
                     te_feature1 = te_feature1.cuda()
                     te_feature2 = te_feature2.cuda()
@@ -219,8 +187,6 @@ def train(opt):
                 if param.requires_grad:
                     if name=='fd.weight':
                         print(name,param.data)
-           # writer.add_scalar('Test/Loss', te_loss, epoch)
-           # writer.add_scalar('Test/Accuracy', test_metrics["accuracy"], epoch)
             model.train()
             if te_loss + opt.es_min_delta < best_loss:
                 best_loss = te_loss
