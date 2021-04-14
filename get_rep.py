@@ -147,7 +147,7 @@ class LineByLineTextDataset(Dataset):
                 self.examples = pickle.load(handle)
         else:
             logger.info("Creating features from dataset file at %s", file_path)
-            '''
+            
             with open(file_path, encoding="utf-8") as f:
                 lines = [line for line in f.read().splitlines() if len(line) > 0]
             '''
@@ -166,6 +166,7 @@ class LineByLineTextDataset(Dataset):
                     texts.append(row[-2])
                     dialect_tag.append(row[-3])
             lines = texts
+            '''
             self.examples = tokenizer.batch_encode_plus(lines, max_length=block_size)["input_ids"]
             logger.info("Saving features into cached file %s", cached_features_file)
             with open(cached_features_file, "wb") as handle:
