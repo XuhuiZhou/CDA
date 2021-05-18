@@ -15,13 +15,11 @@ g = open('_{}_ai2_gorc.index'.format(goal), 'w')
 with open(data_path) as csv_file:
     reader = csv.reader(csv_file, quotechar='"')
     for idx, line in enumerate(reader):
-        text_1 = ""
-        text_2 = ""
         line[1] = line[1].replace('\001', '')
         line[2] = line[2].replace('\001', '')
         label = int(line[0])
-        text_1 = process(text_1)
-        text_2 = process(text_2)
+        text_1 = process(line[1])
+        text_2 = process(line[2])
         idx_1 = len(text_1)
         idx_2 = len(text_2)
         g.write('{}\n'.format(idx_1))
